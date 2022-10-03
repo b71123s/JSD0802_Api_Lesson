@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="JSD2208_SE" />
+        <module name="JSD2208_SD" />
       </profile>
     </annotationProcessing>
   </component>
