@@ -1,9 +1,6 @@
 package io;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class ReadStringDemo1 {
@@ -27,3 +24,4 @@ public class ReadStringDemo1 {
         fis.close();
     }
 }
+
