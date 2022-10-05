@@ -85,7 +85,7 @@ public class PTS {
         FileOutputStream fos = new FileOutputStream("picture_cp.PNG");
         BufferedOutputStream bos = new BufferedOutputStream(fos);
 
-        int len;- -96/*++
+        int len;
 
         while ((len = bis.read()) != -1){
 
