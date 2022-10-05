@@ -1,13 +1,11 @@
 package io;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.nio.Buffer;
 import java.nio.charset.StandardCharsets;
 
 public class PTS {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         // 創建一個資料夾
 //        File ffolder = new File("PTS");
@@ -54,25 +52,49 @@ public class PTS {
 //        System.out.println("複製完成!");
 
         // 完成15KB的塊讀寫
+//        FileInputStream fis = new FileInputStream("picture.PNG");
+//        FileOutputStream fos = new FileOutputStream("picture_cp.PNG");
+//        byte[] data = new byte[15*1024];
+//        int d;
+//        while ( (d = fis.read(data)) != -1 ){
+//            fos.write(data,0,d);
+//        }
+
+        // 將物件序列化，PTS.txt檔的
+//        String name = "elijah";
+//        int age = 20;
+//        String[] aother = {"nice", "good", "fast"};
+//        PTSO one = new PTSO(name, age, aother);
+//
+//        FileOutputStream fos = new FileOutputStream("PTS.obj");
+//        ObjectOutputStream oos = new ObjectOutputStream(fos);
+//        oos.writeObject(one);
+//
+//        FileInputStream fis = new FileInputStream("PTS.obj");
+//        ObjectInputStream ois = new ObjectInputStream(fis);
+//        PTSO p =(PTSO)ois.readObject();
+//        System.out.println(p);
+//
+//        oos.close();
+//        ois.close();
+
+        // 用緩衝流完成複製照片
         FileInputStream fis = new FileInputStream("picture.PNG");
+        BufferedInputStream bis =  new BufferedInputStream(fis);
+
         FileOutputStream fos = new FileOutputStream("picture_cp.PNG");
-        byte[] data = new byte[15*1024];
-        for (int i = 0; i < 10; i++) {
-            fis.read(data);
-            fos.write(data);
+        BufferedOutputStream bos = new BufferedOutputStream(fos);
+
+        int len;- -96/*++
+
+        while ((len = bis.read()) != -1){
+
+            bos.write(len);
+            System.out.println(len);
         }
-
-
-
-
-
-        // 將文字序列化，PTS.txt檔的
-        // 檔案文字反序列化讀出 "恭喜測試完成，CGS!"
-
-        // 創建一物件為watch把內容寫道PTS2.obj上，序列化，和反序列化，可順利讀到文字
-
-
-
+        System.out.println("已完成");
+        bis.close();
+        bos.close();
 
     }
 }

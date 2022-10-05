@@ -14,6 +14,7 @@ public class CopyDemo3 {
         int d;
         while ((d = bis.read()) != -1 ){
             bos.write(d);
+            System.out.println(d);
         }
         long end = System.currentTimeMillis();
         System.out.println("複製完畢! 耗時: "+((end-start))+"毫秒");
