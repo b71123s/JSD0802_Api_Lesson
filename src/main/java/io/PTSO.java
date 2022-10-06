@@ -9,12 +9,16 @@ public class PTSO implements Serializable {
 
     private String name;
     private int age;
-    private transient String[] another;
+    private String email;
 
-    public PTSO(String name, int age, String[] another) {
+    public PTSO(String name, int age, String email) {
         this.name = name;
         this.age = age;
-        this.another = another;
+        this.email = email;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
     public String getName() {
         return name;
@@ -28,19 +32,18 @@ public class PTSO implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
-    public String[] getAnother() {
-        return another;
+    public String getEmail() {
+        return email;
     }
-    public void setAnother(String[] another) {
-        this.another = another;
+    public void setEmail(String email) {
+        this.email = email;
     }
-
     @Override
     public String toString() {
         return "PTSO{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", another=" + Arrays.toString(another) +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
