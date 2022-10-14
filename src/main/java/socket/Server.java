@@ -23,21 +23,19 @@ public class Server {
     public void start(){
         try {
             while(true){
-            System.out.println("等待客戶端連接...");
-            Socket socket = serverSocket.accept();
-            System.out.println("一個客戶端連接了!");
+                System.out.println("等待客戶端連接...");
+                Socket socket = serverSocket.accept();
+                System.out.println("一個客戶端連接了!");
+
+                InputStream in = socket.getInputStream();
+                InputStreamReader isr = new InputStreamReader(in, StandardCharsets.UTF_8);
+                BufferedReader br = new BufferedReader(isr);
+                String message;
+
+                while ( (message = br.readLine()) != null ){
+                    System.out.println("客戶端說: "+ message);
+                }
             }
-//            InputStream in = socket.getInputStream();
-//            InputStreamReader isr = new InputStreamReader(in, StandardCharsets.UTF_8);
-//            BufferedReader br = new BufferedReader(isr);
-//            String message;
-//            }
-//
-//            while ( (message = br.readLine()) != null ){
-//                System.out.println("客戶端說: "+ message);
-//            }
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
