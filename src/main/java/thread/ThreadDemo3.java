@@ -1,37 +1,48 @@
 package thread;
 
-/**
- * 以匿名内部类形式完成线程的两种创建模式
- */
 public class ThreadDemo3 {
     public static void main(String[] args) {
-        //第一种创建线程的方式:继承Thread并重写run方法
-        Thread t1 = new Thread(){
+        // 1、匿名內部類創建線程
+        Thread t1 =  new Thread(){
             public void run(){
-                for (int i=0;i<1000;i++) {
-                    System.out.println("你是谁啊");
+                for (int i = 0; i < 1000; i++) {
+                    System.out.println(i+"、你好");
                 }
             }
         };
-        //第二种创建线程的方式:实现Runnable接口并重写run方法
-//        Runnable r2 = new Runnable() {
-//            public void run() {
-//                for (int i=0;i<1000;i++) {
-//                    System.out.println("我是查水表的!");
-//                }
-//            }
-//        };
-//        Thread t2 = new Thread(r2);
 
-        //Runnable接口可以使用lambda表达式创建
+        // 2、匿名內部類創建線程任務，並實現R接口
+        Runnable r1 = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 1000; i++) {
+                    System.out.println(i+"我好，大家好!!!");
+                }
+            }
+        };
+
+        // 3、匿名內部類創建線程任務，並實現R接口(lambda)
+        // Runnable接口內有@FunctionalInterface註解，表示可使用lambda表達式
+        // 涵式內部只有抽象方法才可lambda表達式
+        Runnable r2 = ()->{
+                for (int i = 0; i < 1000; i++) {
+                    System.out.println(i+"我好，大家好!!!");
+                }
+        };
+
+
+        // 4、匿名內部類完整線程+任務創建
+        // 如下，可將新增線程內裝Runnable的lambda更直觀
         Thread t2 = new Thread(()->{
-            for (int i=0;i<1000;i++) {
-                System.out.println("我是查水表的!");
+            for (int i = 0; i < 1000; i++) {
+                System.out.println(i+"我好，大家好!!!");
             }
         });
+        // 原句
+//        Thread t2 = new Thread(r2);
 
-
-        t1.start();
         t2.start();
+
     }
 }
+
