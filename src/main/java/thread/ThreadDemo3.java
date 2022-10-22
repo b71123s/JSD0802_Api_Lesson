@@ -2,7 +2,7 @@ package thread;
 
 public class ThreadDemo3 {
     public static void main(String[] args) {
-        // 1、匿名內部類創建線程
+        // 1、匿名內部類創建線程+任務
         Thread t1 =  new Thread(){
             public void run(){
                 for (int i = 0; i < 1000; i++) {
@@ -11,7 +11,7 @@ public class ThreadDemo3 {
             }
         };
 
-        // 2、匿名內部類創建線程任務，並實現R接口
+        // 2、匿名內部類，創建任務
         Runnable r1 = new Runnable() {
             @Override
             public void run() {
@@ -21,7 +21,7 @@ public class ThreadDemo3 {
             }
         };
 
-        // 3、匿名內部類創建線程任務，並實現R接口(lambda)
+        // 3、匿名內部類，創建任務，並實現R接口(lambda)
         // Runnable接口內有@FunctionalInterface註解，表示可使用lambda表達式
         // 涵式內部只有抽象方法才可lambda表達式
         Runnable r2 = ()->{
