@@ -6,7 +6,7 @@ public class ThreadDemo2 {
         Runnable r1 = new MyRunnable1();
         Runnable r2 = new MyRunnable2();
         // 實歷化線程，並指派任務
-        Thread t1 = new Thread(r1);
+        Thread t1 = new Thread(r1); 
         Thread t2 = new Thread(r2);
         // 線程啟動後，會自動調用run方法
         t1.start();
