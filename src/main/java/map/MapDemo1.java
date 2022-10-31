@@ -42,6 +42,7 @@ public class MapDemo1 {
         map.clear();
         System.out.println(map);  // {}
 
+
     }
 
 }
